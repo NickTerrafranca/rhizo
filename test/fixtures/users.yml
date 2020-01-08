@@ -1,1 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+milo:
+  first_name: Milo
+  last_name: Stubbs
+  email: milo@example.com
+
+maybel:
+  first_name: Maybel
+  last_name: Cakes
+  email: maybel@example.gov

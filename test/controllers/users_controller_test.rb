@@ -2,7 +2,11 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
-  test "should get new" do
+  def setup
+    @user = users(:milo)
+  end
+
+  test 'should get new' do
     get new_user_url
     assert_response :success
   end
@@ -13,17 +17,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_user_url
+    get edit_user_url(@user)
     assert_response :success
   end
 
   test "should get show" do
-    get user_url
+    get user_url(@user)
     assert_response :success
   end
 
   # test "should get create" do
-  #   post create_users_url
+  #   post create_user_url
   #   assert_response :success
   # end
 
