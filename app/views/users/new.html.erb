@@ -1,6 +1,10 @@
 <% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
 
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_with(model: @user, local: true) do |user_form| %>
