@@ -9,5 +9,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
     assert_select 'div#error_explanation'
     assert_select 'div.field_with_errors'
+    assert_not  flash["Womp womp..."]
   end
 end
