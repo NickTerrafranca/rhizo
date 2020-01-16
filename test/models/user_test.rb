@@ -78,4 +78,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "string attributes should not contain leading or trailing white space on save and validate" do
+    unsaved_user = @user.dup
+    unsaved_user.last_name = unsaved_user.last_name + ' '
+    unsaved_user.save
+    assert unsaved_user.valid?
+    assert_equal unsaved_user.last_name, @user.last_name
+  end
+
 end
