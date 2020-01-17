@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @users = User.all
   end
 
   def new
@@ -24,9 +25,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Success"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def destroy

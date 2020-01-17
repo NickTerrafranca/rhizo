@@ -1,2 +1,26 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<% provide(:title, 'Edit') %>
+<h1>Edit</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @user, local: true) do |user_form| %>
+      <%= render 'shared/error_messages', object: user_form.object %>
+
+      <%= user_form.label :first_name %>
+      <%= user_form.text_field :first_name, class: 'form-control' %>
+
+      <%= user_form.label :last_name %>
+      <%= user_form.text_field :last_name, class: 'form-control' %>
+
+      <%= user_form.label :email %>
+      <%= user_form.email_field :email, class: 'form-control' %>
+
+      <%= user_form.label :password %>
+      <%= user_form.password_field :password, class: 'form-control' %>
+
+      <%= user_form.label :password_confirmation, 'Confirmation' %>
+      <%= user_form.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= user_form.submit 'Update account', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
