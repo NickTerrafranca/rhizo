@@ -22,10 +22,8 @@ module SessionsHelper
 
   def remember(user)
     user.remember
-    cookies.permanent.signed[:user_id] = user.id
-    # cookies.signed[:user_id] = {value: user.id, expires: 30.days.from_now}
-    cookies.permanent[:remember_token] = user.remember_token
-    # cookies[:remember_token] = {value: user.remember_token, expires: 30.days.from_now}
+    cookies.signed[:user_id] = {value: user.id, expires: 30.days.from_now}
+    cookies[:remember_token] = {value: user.remember_token, expires: 30.days.from_now}
   end
 
   def forget(user)
@@ -40,4 +38,17 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def current_user?(user)
+    user && user == current_user
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed.
+  def stash_url
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 end
