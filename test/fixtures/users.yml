@@ -5,9 +5,13 @@ stabby:
   email: stabbylambdas@example.com
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 rick:
   first_name: Pickle
   last_name: Pick
   email: ricksanchez@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
