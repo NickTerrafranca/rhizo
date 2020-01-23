@@ -10,7 +10,7 @@ stabby:
 
 rick:
   first_name: Pickle
-  last_name: Pick
+  last_name: Rick
   email: ricksanchez@example.com
   password_digest: <%= User.digest('password') %>
   activated: true

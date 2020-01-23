@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.active
   end
 
   def new
@@ -18,9 +18,14 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = 'Success'
-      redirect_to @user
+
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+
+      # log_in @user
+      # flash[:success] = 'Success'
+      # redirect_to @user
     else
       flash[:error] = 'Womp womp...'
       render :new
