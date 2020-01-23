@@ -1,5 +1,7 @@
 <ul>
   <% @users.each do |user| %>
-    <%= "#{user.name} - #{user.email}" %>
+  <li>  <%= "#{user.name} - #{user.email}" %>
+    <%= link_to("delete", user, method: :delete, data: { confirm: "You sure?" }) if current_user.admin? && !current_user?(user)%>
+  </li>
   <% end %>
 </ul>

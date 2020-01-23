@@ -4,6 +4,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:stabby)
+    @non_admin = users(:rick)
   end
 
   test 'invalid signup information' do
@@ -25,5 +26,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'users/show'
     assert is_logged_in?
+  end
+
+  test "index as non-admin" do
+    log_in_as(@non_admin)
+    get users_path
+    assert_select 'a', text: 'delete', count: 0
   end
 end

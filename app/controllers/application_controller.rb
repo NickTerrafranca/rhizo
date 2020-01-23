@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :show]
-  before_action :correct_user, only: [:edit, :update]
 
   private
     def logged_in_user

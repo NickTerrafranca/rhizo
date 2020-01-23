@@ -47,7 +47,7 @@ module SessionsHelper
     session.delete(:forwarding_url)
   end
 
-  # Stores the URL trying to be accessed.
+  # Stores the URL for friendly forwarding
   def stash_url
     session[:forwarding_url] = request.original_url if request.get?
   end
