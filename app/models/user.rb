@@ -41,7 +41,7 @@ class User < ApplicationRecord
 
   def create_reset_digest
     self.reset_token = User.new_token
-    update_attributes(reset_digest:  User.digest(reset_token), reset_sent_at: Time.zone.now)
+    update(reset_digest:  User.digest(reset_token), reset_sent_at: Time.zone.now)
   end
 
   def send_password_reset_email
@@ -70,7 +70,7 @@ class User < ApplicationRecord
       self.email.downcase!
     end
 
-    def strip_whitespace # put this in a concern to be available to all models
+    def strip_whitespace
       [first_name, last_name, email].each { |attr| attr.strip! unless attr.nil? }
     end
 
