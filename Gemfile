@@ -32,7 +32,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.9'
-  # gem 'quiet_assets', '~> 1.1'
 end
 
 group :development do
