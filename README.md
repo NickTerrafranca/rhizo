@@ -1,7 +1,7 @@
 # README
 # Rails 6 Boilerplate Application
 ### Minimal Rails 6 application to allow fast creation of new rails projects
-* Commercial grade user authentication with Bcrypt allowing
+* Commercial grade user authentication with Bcrypt
 
 * Full MiniTest suite for existing code
 
