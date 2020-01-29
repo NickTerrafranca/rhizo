@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Rails 6 Boilerplate Application
+### Minimal Rails 6 application to allow for fast forking and creation of new rails projects
 
-Things you may want to cover:
+* Ruby version 2.6.2
 
-* Ruby version
+* Rails 6.0.1
 
-* System dependencies
+* Minitest 5.13
 
-* Configuration
+# Install rvm
+`https://rvm.io/rvm/install`
 
-* Database creation
+# Install Ruby version
+* `$ rvm install 2.6.2`
+* `$ rvm use 2.6.2`
+* # Set default ruby version
+* $ rvm --default use 2.6.2
+* # use system version
+* $ rvm use system
 
-* Database initialization
+### Install npm
+$ npm install latest-version
 
-* How to run the test suite
+### Install yarn
+$ brew install yarn
+$ yarn install --check-files
 
-* Services (job queues, cache servers, search engines, etc.)
+### Install PostgreSQL
+* postgres --version # This should not return a version number. If it does you need to update/remove/migrate the old installation
+* brew update
+* brew install postgresql
+* brew services start postgresql
 
-* Deployment instructions
 
-* ...
+### Setup database
+$ gem install pg
+# Add pg gem in gemfile
+$ brew services start postgresql
+$ createdb `<app_name>_development` # set by rials new <app_name> in config/database.yml
+
+### Setup guard gem
+$ bundle exec guard init
+# Open an new terminal tab and start guard watcher
+$ bundle exec guard
