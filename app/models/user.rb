@@ -12,6 +12,8 @@ class User < ApplicationRecord
   # enforces validations on the virtual `password` and `password_confirmation` attributes
   has_secure_password
 
+  has_many :recipes
+
   def name
     [first_name, last_name].reject(&:blank?).join(' ')
   end
