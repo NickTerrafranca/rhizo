@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_211717) do
   end
 
   create_table "quantities", force: :cascade do |t|
-    t.decimal "amount", null: false
+    t.float "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

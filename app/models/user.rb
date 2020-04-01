@@ -10,9 +10,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # enforces validations on the virtual `password` and `password_confirmation` attributes
+  has_many :recipes, dependent: :delete_all
+  accepts_nested_attributes_for :recipes
   has_secure_password
-
-  has_many :recipes
 
   def name
     [first_name, last_name].reject(&:blank?).join(' ')
