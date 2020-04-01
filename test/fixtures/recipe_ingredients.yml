@@ -4,10 +4,10 @@
 #   recipe: one
 #   unit: one
 #   quantity: one
-#   ingredient: one
+#   item: one
 
 # two:
 #   recipe: two
 #   unit: two
 #   quantity: two
-#   ingredient: two
+#   item: two

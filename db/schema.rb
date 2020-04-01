@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_211717) do
+ActiveRecord::Schema.define(version: 2020_04_01_220156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ingredients", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2020_03_31_211717) do
     t.bigint "recipe_id", null: false
     t.bigint "unit_id", null: false
     t.bigint "quantity_id", null: false
-    t.bigint "ingredient_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["item_id"], name: "index_recipe_ingredients_on_item_id"
     t.index ["quantity_id"], name: "index_recipe_ingredients_on_quantity_id"
     t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
     t.index ["unit_id"], name: "index_recipe_ingredients_on_unit_id"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_211717) do
     t.index ["email"], name: "index_users_on_email"
   end
 
-  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "items"
   add_foreign_key "recipe_ingredients", "quantities"
   add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "recipe_ingredients", "units"
