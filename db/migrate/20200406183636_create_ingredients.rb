@@ -1,6 +1,6 @@
-class CreateItems < ActiveRecord::Migration[6.0]
+class CreateIngredients < ActiveRecord::Migration[6.0]
   def change
-    create_table :items do |t|
+    create_table :ingredients do |t|
       t.string :name, null: false, unique: true
 
       t.timestamps
