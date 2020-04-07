@@ -4,7 +4,7 @@ class CreateBatches < ActiveRecord::Migration[6.0]
       t.references :recipe, null: false, foreign_key: true
       t.text :notes
       t.float :multiplier, precision: 6, scale: 2, null: false
-      t.integer :concentration, null: false
+      t.float :concentration, precision: 3, scale: 2, null: false
       t.date :prep_date
 
       t.timestamps
