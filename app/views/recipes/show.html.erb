@@ -1,0 +1,19 @@
+<% provide(:title, 'Recipe') %>
+
+<h3><%= @recipe.title %></h3>
+<strong>Description</strong>
+<p><%= @recipe.description %></p>
+<strong>Ingredients</strong>
+<ul>
+  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+  <li>
+    <div>
+      <!-- TODO helper here -->
+      <%= recipe_ingredient.quantity.amount %>
+      <%= recipe_ingredient.quantity.unit %>
+      <%= recipe_ingredient.ingredient.name %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+<div><%= link_to 'Edit', edit_recipe_path(@recipe) %></div>

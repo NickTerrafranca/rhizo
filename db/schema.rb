@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_195100) do
     t.bigint "recipe_id", null: false
     t.text "notes"
     t.float "multiplier", null: false
-    t.integer "concentration", null: false
+    t.float "concentration", null: false
     t.date "prep_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
