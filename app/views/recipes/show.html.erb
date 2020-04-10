@@ -8,12 +8,11 @@
   <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
   <li>
     <div>
-      <!-- TODO helper here -->
-      <%= recipe_ingredient.quantity.amount %>
-      <%= recipe_ingredient.quantity.unit %>
-      <%= recipe_ingredient.ingredient.name %>
+      <%= recipe_ingredient_line_item(recipe_ingredient) %>
     </div>
   </li>
   <% end %>
 </ul>
 <div><%= link_to 'Edit', edit_recipe_path(@recipe) %></div>
+<div><%= link_to "Create New Batch of #{@recipe.title}", new_recipe_batch_path(@recipe) %></div>
+<div><%= link_to "Work with batches of #{@recipe.title}", recipe_batches_path(@recipe) %></div>

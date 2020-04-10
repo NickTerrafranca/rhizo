@@ -1,0 +1,9 @@
+<% provide(:title, 'Recipes') %>
+<h1>Batches of your recipes</h1>
+<ul>
+  <% @recipe.batches.each do |batch| %>
+    <li>
+      <%= link_to "#{batch.date_mm_dd_yyyy} #{batch.notes.truncate(27)}", recipe_batch_path(@recipe, batch) %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,18 @@
+<% provide(:title, 'Batch') %>
+<h1>Batch of <%= @recipe.title %></h1>
+<ul>
+  <li>Preparation date: <%= @batch.date_long %></li>
+  <li>Recipe multiplier: <%= @batch.multiplier %></li>
+  <li>Recipe concentration %: <%= @batch.concentration %></li>
+  <li>Batch preparation notes: <%= @batch.notes %></li>
+  <br>
+  <ul>
+    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+      <li>
+        <%= converted_recipe_line_item(ingredient: recipe_ingredient, batch: @batch) %>
+      </li>
+    <% end %>
+  </ul>
+</ul>
+<div><%= link_to('Edit this batch', edit_recipe_batch_path(@recipe, @batch)) %></div>
+<div><%= link_to 'View Recipe', recipe_path(@recipe) %></div>
