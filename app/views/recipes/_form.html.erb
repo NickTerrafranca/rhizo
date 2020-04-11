@@ -1,11 +1,14 @@
 <%= form_with(model: @recipe, local: true) do |recipe_form| %>
   <%= render 'shared/error_messages', object: recipe_form.object %>
 
-  <%= recipe_form.label :title %>
-  <%= recipe_form.text_field :title, class: 'form-control' %>
+  <div class="form-group">
+    <%= recipe_form.label :title %>
+    <%= recipe_form.text_field :title, class: 'form-control' %>
+  </div>
 
-  <%= recipe_form.label :description %>
-  <%= recipe_form.text_field :description, class: 'form-control' %>
-
-  <%= recipe_form.submit 'Add', class: 'btn btn-primary' %>
+  <div class="form-group">
+    <%= recipe_form.label :description %>
+    <%= recipe_form.text_area :description, class: 'form-control', rows: 6 %>
+  </div>
+  <%= recipe_form.submit 'Go', class: 'btn btn-primary' %>
 <% end %>
