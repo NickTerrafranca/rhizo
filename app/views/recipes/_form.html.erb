@@ -1,14 +1,25 @@
-<%= form_with(model: @recipe, local: true) do |recipe_form| %>
+<%= simple_form_for(@recipe, local: true ) do |recipe_form| %>
   <%= render 'shared/error_messages', object: recipe_form.object %>
 
   <div class="form-group">
-    <%= recipe_form.label :title %>
-    <%= recipe_form.text_field :title, class: 'form-control' %>
+    <%= recipe_form.input :title, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= recipe_form.label :description %>
-    <%= recipe_form.text_area :description, class: 'form-control', rows: 6 %>
+    <%= recipe_form.text_area :description, as: :text, class: 'form-control', rows: 6 %>
   </div>
+  <h3>Ingredients</h3>
+  <%= recipe_form.simple_fields_for :recipe_line_items do |line_item_form| %>
+    <%= render 'recipe_line_item_fields', f: line_item_form %>
+
+    <%= line_item_form.input :concentration_variable, label: 'Variable?', as: :check_boxes %>
+    <%#= link_to_remove_association 'Remove ingredient', line_item_form, :recipe_line_items %>
+  <% end %>
+
+  <div class="form-group">
+    <%#= link_to_add_association '+', recipe_form, :recipe_line_items %>
+    <%#= link_to_remove_association '-', recipe_form, :recipe_line_items %>
+  </div>
+
   <%= recipe_form.submit 'Go', class: 'btn btn-primary' %>
 <% end %>

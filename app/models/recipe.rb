@@ -4,5 +4,6 @@ class Recipe < ApplicationRecord
   has_many :quantities, through: :recipe_line_items
   has_many :ingredients, through: :recipe_line_items
   has_many :batches
-  accepts_nested_attributes_for :recipe_line_items
+
+  accepts_nested_attributes_for :recipe_line_items #TODO , reject_if: :all_blank, allow_destroy: true
 end
