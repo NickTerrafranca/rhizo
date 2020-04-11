@@ -30,6 +30,10 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'cocoon', '~> 1.2', '>= 1.2.14'
+
+gem 'simple_form', '~> 5.0', '>= 5.0.2'
+
 group :development, :test do
   gem 'pry-rails', '~> 0.3.9'
 end

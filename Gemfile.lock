@@ -78,6 +78,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    cocoon (1.2.14)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.6)
@@ -200,6 +201,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     shellany (0.0.1)
+    simple_form (5.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -247,6 +251,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   bootstrap-sass (~> 3.4, >= 3.4.1)
   capybara (= 3.28.0)
+  cocoon (~> 1.2, >= 1.2.14)
   guard (= 2.15.0)
   guard-minitest (= 2.4.6)
   jbuilder (~> 2.7)
@@ -260,6 +265,7 @@ DEPENDENCIES
   rails-controller-testing (= 1.0.4)
   sass-rails (>= 6)
   selenium-webdriver
+  simple_form (~> 5.0, >= 5.0.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
