@@ -1,4 +1,4 @@
-class RecipeIngredient < ApplicationRecord
+class RecipeLineItem < ApplicationRecord
   has_one :recipe
   belongs_to :quantity
   belongs_to :ingredient
@@ -7,8 +7,8 @@ class RecipeIngredient < ApplicationRecord
 
   def calculate_batch_amount(batch)
     converted_quantity = quantity.amount * batch.multiplier
-    if self.variable
-      batch.concentration_percent * converted_quantity
+    if self.concentration_variable?
+      converted_quantity * batch.concentration_percent
     else
       converted_quantity
     end

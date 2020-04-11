@@ -1,6 +1,9 @@
 <%= form_with(model: [@recipe, @batch], local: true ) do |batch_form| %>
   <%= render 'shared/error_messages', object: batch_form.object %>
 
+  <%= batch_form.label :name %>
+  <%= batch_form.text_field :name, class: 'form-control' %>
+
   <%= batch_form.label :prep_date %>
   <%= batch_form.date_field :prep_date, class: 'form-control' %>
 

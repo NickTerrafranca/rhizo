@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_195100) do
 
   create_table "batches", force: :cascade do |t|
     t.bigint "recipe_id", null: false
+    t.string "name", null: false
     t.text "notes"
     t.float "multiplier", null: false
     t.float "concentration", null: false
@@ -39,16 +40,16 @@ ActiveRecord::Schema.define(version: 2020_04_06_195100) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "recipe_ingredients", force: :cascade do |t|
+  create_table "recipe_line_items", force: :cascade do |t|
     t.bigint "recipe_id", null: false
     t.bigint "quantity_id", null: false
     t.bigint "ingredient_id", null: false
-    t.boolean "variable", default: false, null: false
+    t.boolean "concentration_variable", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
-    t.index ["quantity_id"], name: "index_recipe_ingredients_on_quantity_id"
-    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+    t.index ["ingredient_id"], name: "index_recipe_line_items_on_ingredient_id"
+    t.index ["quantity_id"], name: "index_recipe_line_items_on_quantity_id"
+    t.index ["recipe_id"], name: "index_recipe_line_items_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -79,8 +80,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_195100) do
   end
 
   add_foreign_key "batches", "recipes"
-  add_foreign_key "recipe_ingredients", "ingredients"
-  add_foreign_key "recipe_ingredients", "quantities"
-  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipe_line_items", "ingredients"
+  add_foreign_key "recipe_line_items", "quantities"
+  add_foreign_key "recipe_line_items", "recipes"
   add_foreign_key "recipes", "users"
 end

@@ -3,7 +3,7 @@
 <ul>
   <% @recipe.batches.each do |batch| %>
     <li>
-      <%= link_to "#{batch.date_mm_dd_yyyy} #{batch.notes.truncate(27)}", recipe_batch_path(@recipe, batch) %>
+      <%= link_to batch.display_name, recipe_batch_path(@recipe, batch) %>
     </li>
   <% end %>
 </ul>

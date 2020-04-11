@@ -49,7 +49,7 @@ class BatchesController < ApplicationController
     private
 
     def batch_params
-      params.require(:batch).permit(:notes, :multiplier, :concentration, :prep_date)
+      params.require(:batch).permit(:name, :notes, :multiplier, :concentration, :prep_date)
     end
 
 end
