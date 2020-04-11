@@ -1,13 +1,19 @@
 <div class="nested-fields">
   <div class="field">
+
+    <%= link_to_remove_association 'Remove ingredient', f %>
+
     <%= f.simple_fields_for :ingredient do |ingredient_form| %>
-      <%= ingredient_form.input :name %>
+      <%= ingredient_form.input :name %><!-- This is NOT displayed -->
     <% end %>
 
     <%= f.simple_fields_for :quantity do |quantity_form| %>
-      <%= quantity_form.input :unit %>
-      <%= quantity_form.input :amount, as: :decimal %>
+      <%= quantity_form.input :unit %><!-- This is NOT displayed -->
+      <%= quantity_form.input :amount, as: :decimal %><!-- This is NOT displayed -->
     <% end %>
-    <%#= link_to_remove_association '-', f %>
+
+    <!-- This IS displayed -->
+    <%= f.input :concentration_variable, label: 'Variable?', as: :check_boxes %>
+
   </div>
 </div>
