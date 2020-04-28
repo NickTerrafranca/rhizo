@@ -5,7 +5,9 @@
 .recipe-form {
   // .nested-ingredient {}
   .concentration-variable-select {
-    width: 50px;
+    width: 55px;
+    display: inline-block;
+    margin-left: 10px;
   }
   .remove_fields {
     color: #d43d3d;

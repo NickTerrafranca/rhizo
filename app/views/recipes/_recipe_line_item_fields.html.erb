@@ -1,7 +1,6 @@
 <div class="nested-fields">
   <div class="field control-group">
     <hr>
-
     <div class="controls form-inline">
       <% f.object.build_ingredient if f.object.ingredient.nil? %>
       <%= f.simple_fields_for :ingredient do |ingredient_form| %>
@@ -15,7 +14,10 @@
       <% end %>
     </div>
     <br>
+
     <%= f.input :concentration_variable, label: 'Concentration Variable?', as: :select, input_html: { class: 'nested-ingredient concentration-variable-select'}  %>
-    <%= link_to_remove_association 'Remove ingredient', f %>
+
+    <%= link_to_remove_association 'Remove ingredient', f, data: { confirm: 'Are you sure?' } %>
+    <!-- This confirmation code is not working in the current version of cocoon -->
   </div>
 </div>
