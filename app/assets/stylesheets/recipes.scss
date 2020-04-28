@@ -1,3 +1,16 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.recipe-form {
+  // .nested-ingredient {}
+  .concentration-variable-select {
+    width: 50px;
+  }
+  .remove_fields {
+    color: #d43d3d;
+  }
+  .add_fields {
+    color: #00559e;
+  }
+}

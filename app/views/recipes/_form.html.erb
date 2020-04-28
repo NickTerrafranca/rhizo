@@ -1,19 +1,19 @@
-<%= simple_form_for(@recipe, local: true ) do |recipe_form| %>
-  <%= render 'shared/error_messages', object: recipe_form.object %>
+<div class="row">
+  <%= simple_form_for(@recipe, local: true,  html: { class: 'recipe-form' } ) do |recipe_form| %>
+    <%= render 'shared/error_messages', object: recipe_form.object %>
 
-  <%= recipe_form.input :title, class: 'form-control' %>
+    <%= recipe_form.input :title %>
 
-  <%= recipe_form.text_area :description, as: :text, class: 'form-control', rows: 6 %>
+    <%= recipe_form.text_area :description, as: :text, class: 'form-control', rows: 6 %>
 
-  <h3>Ingredients</h3>
-  <%= recipe_form.simple_fields_for :recipe_line_items do |line_item_form| %>
-    <%= render 'recipe_line_item_fields', f: line_item_form %>
+    <h3>Ingredients</h3>
+    <%= recipe_form.simple_fields_for :recipe_line_items do |line_item_form| %>
+      <%= render 'recipe_line_item_fields', f: line_item_form %>
+    <% end %>
+
+
+    <div><%= link_to_add_association 'Add ingredient', recipe_form, :recipe_line_items %></div>
+    <br>
+    <%= recipe_form.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>
-
-  <!-- When clicked, this displays the <%#= f.input :concentration_variable, label: 'Variable?', as: :check_boxes %> field
-    in the partial recipes/_recipe_line_item_fields.html.erb BUT DOES NOT display the nested form fields
-  -->
-  <div><%= link_to_add_association 'Add ingredient', recipe_form, :recipe_line_items %></div>
-
-  <%= recipe_form.submit 'Submit', class: 'btn btn-primary' %>
-<% end %>
+</div>

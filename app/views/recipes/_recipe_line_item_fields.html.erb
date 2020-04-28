@@ -1,19 +1,21 @@
 <div class="nested-fields">
-  <div class="field">
+  <div class="field control-group">
+    <hr>
 
+    <div class="controls form-inline">
+      <% f.object.build_ingredient if f.object.ingredient.nil? %>
+      <%= f.simple_fields_for :ingredient do |ingredient_form| %>
+        <%= ingredient_form.input :name, label: false, placeholder: 'ingredient name', input_html: { class: 'nested-ingredient'} %>
+      <% end %>
+
+      <% f.object.build_quantity if f.object.quantity.nil? %>
+      <%= f.simple_fields_for :quantity do |quantity_form| %>
+        <%= quantity_form.input :unit, label: false, placeholder: 'Unit', input_html: { class: 'nested-ingredient'}  %>
+        <%= quantity_form.input :amount, label: false, placeholder: 'Amount as decimal', as: :decimal, input_html: { class: 'nested-ingredient'}  %>
+      <% end %>
+    </div>
+    <br>
+    <%= f.input :concentration_variable, label: 'Concentration Variable?', as: :select, input_html: { class: 'nested-ingredient concentration-variable-select'}  %>
     <%= link_to_remove_association 'Remove ingredient', f %>
-
-    <%= f.simple_fields_for :ingredient do |ingredient_form| %>
-      <%= ingredient_form.input :name %><!-- This is NOT displayed -->
-    <% end %>
-
-    <%= f.simple_fields_for :quantity do |quantity_form| %>
-      <%= quantity_form.input :unit %><!-- This is NOT displayed -->
-      <%= quantity_form.input :amount, as: :decimal %><!-- This is NOT displayed -->
-    <% end %>
-
-    <!-- This IS displayed -->
-    <%= f.input :concentration_variable, label: 'Variable?', as: :check_boxes %>
-
   </div>
 </div>

@@ -9,10 +9,11 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  # enforces validations on the virtual `password` and `password_confirmation` attributes
   has_many :recipes, dependent: :delete_all
   accepts_nested_attributes_for :recipes
   has_secure_password
+  # Adds methods to set and authenticate against a BCrypt passwords
+  # and enforces validations on the virtual `password` and `password_confirmation` attributes
 
   def name
     [first_name, last_name].reject(&:blank?).join(' ')
