@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :recipes, dependent: :delete_all
   accepts_nested_attributes_for :recipes
+
   has_secure_password
   # Adds methods to set and authenticate against a BCrypt passwords
   # and enforces validations on the virtual `password` and `password_confirmation` attributes

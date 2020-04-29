@@ -49,6 +49,7 @@ class RecipesController < ApplicationController
         recipe_line_items_attributes: [
           :id,
           :concentration_variable,
+          :_destroy,
           quantity_attributes: [:unit, :amount],
           ingredient_attributes:[:name]
         ])

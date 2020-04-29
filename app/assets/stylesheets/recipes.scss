@@ -3,9 +3,8 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .recipe-form {
-  // .nested-ingredient {}
-  .concentration-variable-select {
-    width: 55px;
+  .recipe-select {
+    width: 75px !important;
     display: inline-block;
     margin-left: 10px;
   }
