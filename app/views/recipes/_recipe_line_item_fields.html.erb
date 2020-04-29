@@ -2,18 +2,22 @@
   <div class="field control-group">
     <hr>
     <div class="controls form-inline">
+
       <% f.object.build_ingredient if f.object.ingredient.nil? %>
       <%= f.simple_fields_for :ingredient do |ingredient_form| %>
-        <%= ingredient_form.input :name, label: false, placeholder: 'ingredient name', input_html: { class: 'nested-ingredient'} %>
+        <%= ingredient_form.input :name, label: false, placeholder: 'Ingredient name', input_html: { class: 'nested-ingredient'} %>
       <% end %>
 
       <% f.object.build_quantity if f.object.quantity.nil? %>
       <%= f.simple_fields_for :quantity do |quantity_form| %>
-        <%= quantity_form.input :unit, as: :select, collection: quantity_form.object.unit_options_for_select, include_blank: 'Select a Unit', label: false, input_html: { class: 'nested-ingredient recipe-select'}  %>
+        <%= quantity_form.input :unit, as: :select, collection: quantity_form.object.unit_options_for_select, include_blank: 'Select Unit', label: false, input_html: { class: 'nested-ingredient recipe-select'}  %>
         <%= quantity_form.input :amount, label: false, placeholder: 'Amount as decimal', as: :decimal, input_html: { class: 'nested-ingredient'}  %>
       <% end %>
+
       <%= f.input :concentration_variable, label: 'Concentration Variable?', as: :select, input_html: { class: 'nested-ingredient recipe-select'}  %>
+
     </div>
+
     <%= link_to_remove_association 'Remove ingredient', f, data: { confirm: 'Are you sure?' } %>
     <!-- This confirmation code is not working in the current version of cocoon -->
   </div>
