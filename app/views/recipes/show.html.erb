@@ -1,6 +1,7 @@
 <% provide(:title, 'Recipe') %>
 
 <h3><%= @recipe.title %></h3>
+<p class='text-muted'>This is a base recipe - think of it as x1. To create different size yields or concentrations, create a <%= link_to "new <i>Batch</i>".html_safe, new_recipe_batch_path(@recipe) %></p>
 <strong>Description</strong>
 <p><%= @recipe.description %></p>
 <strong>Ingredients</strong>

@@ -7,7 +7,7 @@ class Quantity < ApplicationRecord
   before_validation :strip_whitespace
   before_save :downcase_unit
   validates :unit, presence: true, format: { with: /\A[a-z]+\z/ }, inclusion: { in: ALLOWED_UNITS, message: "%{value} is not valid" }
-  validates :amount, :amount, presence: true, numericality: true
+  validates :amount, presence: true, numericality: true
 
   def unit_options_for_select
     ALLOWED_UNITS

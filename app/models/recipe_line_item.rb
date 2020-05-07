@@ -3,7 +3,7 @@ class RecipeLineItem < ApplicationRecord
   belongs_to :quantity, dependent: :destroy
   belongs_to :ingredient, dependent: :destroy
 
-  accepts_nested_attributes_for :quantity, :ingredient, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :quantity, :ingredient, allow_destroy: true
 
   def calculate_batch_amount(batch)
     converted_quantity = quantity.amount * batch.multiplier

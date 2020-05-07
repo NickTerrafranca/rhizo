@@ -3,8 +3,8 @@
 <ul>
   <li>Batch name: <%= @batch.name %></li>
   <li>Preparation date: <%= @batch.date_long %></li>
-  <li>Recipe multiplier: <%= @batch.multiplier %></li>
-  <li>Recipe concentration %: <%= @batch.concentration %></li>
+  <li><strong>Recipe multiplier: <%= @batch.multiplier %></strong></li>
+  <li><strong>Recipe concentration %: <%= @batch.concentration %></strong></li>
   <li>Batch preparation notes: <%= @batch.notes %></li>
   <br>
   <ul>
@@ -17,3 +17,5 @@
 </ul>
 <div><%= link_to('Edit this batch', edit_recipe_batch_path(@recipe, @batch)) %></div>
 <div><%= link_to 'View Recipe', recipe_path(@recipe) %></div>
+<div><%= link_to 'Delete', recipe_batch_path(@recipe, @batch), method: :delete, data: { confirm: "Are you sure?"} %></div>
+

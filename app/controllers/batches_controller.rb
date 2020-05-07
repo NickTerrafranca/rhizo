@@ -20,7 +20,7 @@ class BatchesController < ApplicationController
     @batch = @recipe.batches.create(batch_params)
     if @batch.save
       flash[:info] = "Batch created for #{@recipe.title}"
-      redirect_to recipe_batch_path
+      redirect_to recipe_batch_path(@recipe, @batch)
     else
       flash[:error] = 'Womp womp...'
       render :new
@@ -44,6 +44,15 @@ class BatchesController < ApplicationController
   end
 
   def destroy
+    batch = Batch.find(params[:id])
+    recipe = Recipe.find(params[:recipe_id])
+    if batch.destroy
+      flash[:info] = "Batch deleted!!!"
+      redirect_to recipe_batches_path(recipe)
+    else
+      flash[:error] = 'Something went wrong'
+      render recipe_batch_path(recipe)
+    end
   end
 
     private
