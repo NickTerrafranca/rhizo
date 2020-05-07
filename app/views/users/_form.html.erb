@@ -1,0 +1,19 @@
+<div class='row'>
+  <div class='col-md-6 col-md-offset-3'>
+    <%= simple_form_for(@user, local: true) do |user_form| %>
+      <%= render 'shared/error_messages', object: user_form.object %>
+
+      <%= user_form.input :first_name %>
+
+      <%= user_form.input :last_name %>
+
+      <%= user_form.input :email %>
+
+      <%= user_form.input :password, as: :password %>
+
+      <%= user_form.input :password_confirmation, as: :password, required: true %>
+
+      <%= user_form.submit 'Create account', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
