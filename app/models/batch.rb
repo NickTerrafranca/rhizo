@@ -15,8 +15,8 @@ class Batch < ApplicationRecord
     prep_date.strftime("%B %e, %Y") if prep_date?
   end
 
-  def display_name
-    [date_mm_dd_yyyy, name.truncate(28)].reject(&:blank?).join(' - ')
+  def display_name(truncate_by: 25)
+    [date_mm_dd_yyyy, name.truncate(truncate_by)].reject(&:blank?).join(' - ')
   end
 
   def concentration_percent

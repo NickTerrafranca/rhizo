@@ -5,7 +5,7 @@
 <strong>Description</strong>
 <p><%= @recipe.description %></p>
 <strong>Ingredients</strong>
-<ul>
+<ul class="list-unstyled">
   <% @recipe.recipe_line_items.each do |recipe_line_item| %>
   <li>
     <div>
@@ -17,3 +17,12 @@
 <div><%= link_to 'Edit', edit_recipe_path(@recipe) %></div>
 <div><%= link_to "Create New Batch of #{@recipe.title}", new_recipe_batch_path(@recipe) %></div>
 <div><%= link_to "Work with batches of #{@recipe.title}", recipe_batches_path(@recipe) %></div>
+
+<h3>Batches of this recipe</h3>
+<ul class="list-unstyled">
+  <% @recipe.batches.order(updated_at: :desc).each do |batch| %>
+    <li>
+      <%= link_to batch.display_name(truncate_by: 50), recipe_batch_path(@recipe, batch) %>
+    </li>
+  <% end %>
+</ul>
