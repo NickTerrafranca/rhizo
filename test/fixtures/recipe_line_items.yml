@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
 recipe_line_item_one:
   recipe_id: 1
   quantity: quantity_one
   ingredient: ingredient_one
+  concentration_variable: false
+
+recipe_line_item_two:
+  recipe_id: 1
+  quantity: quantity_two
+  ingredient: ingredient_two
   concentration_variable: true

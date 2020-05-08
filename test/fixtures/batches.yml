@@ -1,7 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+two_times_batch_normal_consentration:
+  recipe: catfood
+  name: times two batch of spots food
+  notes: Disrupt food truck cred man braid lyft PBR&B marfa franzen hexagon pour-over flexitarian trust fund.
+  multiplier: 2.0
+  concentration: 100.0
+  prep_date: <%= Date.today %>
 
-# one:
-#   recipe: one
-
-# two:
-#   recipe: two
+one_times_batch_half_consentration:
+  recipe: catfood
+  name: times two batch of spots food
+  notes: Disrupt food truck cred man braid lyft PBR&B marfa franzen hexagon pour-over flexitarian trust fund.
+  multiplier: 1.0
+  concentration: 50.0
+  prep_date: <%= Date.today %>

@@ -5,3 +5,9 @@ catfood:
   title: Spicy cat food
   description: This is spot's favorate food
   user: stabby
+
+no_associations:
+  id: 112357
+  title: Spicy cat food
+  description: This is spot's favorate food
+  user: stabby
