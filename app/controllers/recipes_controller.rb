@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :logged_in_user
 
   def index
-    @recipes = current_user.recipes.all
+    @recipes = current_user.recipes.all.order(created_at: :desc)
   end
 
   def show
