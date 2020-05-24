@@ -1,11 +1,13 @@
 # # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   title: MyString
-#   description: MyText
-#   user: one
+catfood:
+  id: 1
+  title: Spicy cat food
+  description: This is spot's favorate food
+  user: stabby
 
-# two:
-#   title: MyString
-#   description: MyText
-#   user: two
+no_associations:
+  id: 112357
+  title: Spicy cat food
+  description: This is spot's favorate food
+  user: stabby
