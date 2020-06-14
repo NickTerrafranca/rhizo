@@ -14,5 +14,6 @@
   <div><%= link_to_add_association 'Add ingredient', recipe_form, :recipe_line_items %></div>
   <br>
   <%= recipe_form.submit 'Submit', class: 'btn btn-primary' %>
+  <%= link_to('delete', @recipe, method: :delete, data: { confirm: 'You sure?' }, class: "btn btn-danger") if current_user.recipes.include?(@recipe) %>
 <% end %>
 

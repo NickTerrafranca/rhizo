@@ -39,6 +39,14 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe = Recipe.find(params[:id])
+    if @recipe.destroy
+      flash[:success] = 'Recipe deleted'
+      redirect_to recipes_path
+    else
+      flash.now[:error] = 'Unable to delete'
+      render 'edit'
+    end
   end
 
   private
