@@ -5,7 +5,7 @@ class RecipeLineItem < ApplicationRecord
 
   before_save :check_existing_ingredient, :check_existing_quantity
 
-  accepts_nested_attributes_for :quantity, :ingredient
+  accepts_nested_attributes_for :quantity, :ingredient, reject_if: :all_blank
 
   def calculate_batch_amount(batch)
     converted_quantity = quantity.amount * batch.multiplier

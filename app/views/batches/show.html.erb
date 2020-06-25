@@ -6,6 +6,7 @@
   <li><strong>Recipe multiplier: <%= @batch.multiplier %></strong></li>
   <li><strong>Recipe concentration %: <%= @batch.concentration %></strong></li>
   <li>Batch preparation notes: <%= @batch.notes %></li>
+  <li>Recipe notes: <%= @batch.recipe.description %></li>
   <br>
   <ul>
     <% @recipe.recipe_line_items.each do |recipe_line_item| %>

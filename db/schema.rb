@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_195100) do
+ActiveRecord::Schema.define(version: 2020_06_20_170842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_195100) do
     t.bigint "recipe_id", null: false
     t.string "name", null: false
     t.text "notes"
-    t.float "multiplier", null: false
-    t.float "concentration", null: false
+    t.float "multiplier", default: 1.0, null: false
+    t.float "concentration", default: 100.0, null: false
     t.date "prep_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

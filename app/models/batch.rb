@@ -2,6 +2,8 @@ class Batch < ApplicationRecord
   belongs_to :recipe
   has_many :recipe_line_items
   has_many :recipe_line_items, through: :recipe
+  validates_associated :recipe
+  validates :name, :prep_date, presence: true
 
   def date_mm_dd_yyyy
     prep_date.strftime("%m/%d/%Y") if prep_date?
